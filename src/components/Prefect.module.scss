@@ -1,0 +1,128 @@
+/* ============================================
+   PREFECT COMPONENT STYLE CUSTOMIZATION GUIDE
+   ============================================
+   
+   All styles can be overridden using CSS custom properties (variables).
+   Set these variables on .prefect or on :root to customize the appearance.
+   
+   Example:
+     .prefect {
+       --prefect-bg: #ffffff;
+       --prefect-text: #000000;
+       --prefect-number-color: #999999;
+     }
+*/
+
+/* ===========================================
+   LIGHT THEME DEFAULTS (default appearance)
+   =========================================== */
+.prefect {
+  /* Layout & Spacing */
+  --prefect-padding-vertical: 1rem;
+  --prefect-padding-horizontal: 0;
+  --prefect-margin: 0;
+  --prefect-border-radius: 8px;
+
+  /* Colors - Light Theme */
+  --prefect-bg: #fafafa;
+  --prefect-text: #000000;
+  --prefect-number-color: #9aa0a6;
+  --prefect-border-color: #e5e5e5;
+  --prefect-hover-bg: rgba(0, 0, 0, 0.03);
+
+  /* Line Numbers */
+  --prefect-number-padding-left: 1rem;
+  --prefect-number-padding-right: 1rem;
+  --prefect-number-min-width: 3ch;
+  --prefect-number-text-align: right;
+  --prefect-number-border-width: 1px;
+  --prefect-number-border-style: solid;
+
+  /* Code Content */
+  --prefect-content-padding-left: 1.5rem;
+  --prefect-content-text-align: left;
+
+  /* Typography */
+  --prefect-font-family: "Consolas", monospace;
+  --prefect-font-size: 14px;
+  --prefect-line-height: 1.6;
+}
+
+/* ===========================================
+   DARK THEME OVERRIDES
+   =========================================== */
+.prefect.dark {
+  --prefect-bg: #1e1e1e;
+  --prefect-text: #d4d4d4;
+  --prefect-number-color: #555555;
+  --prefect-border-color: #333333;
+  --prefect-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================================
+   RESPONSIVE DARK MODE (system preference)
+   =========================================== */
+@media (prefers-color-scheme: dark) {
+  .prefect:not(.light) {
+    --prefect-bg: #1e1e1e;
+    --prefect-text: #d4d4d4;
+    --prefect-number-color: #555555;
+    --prefect-border-color: #333333;
+    --prefect-hover-bg: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* ===========================================
+   COMPONENT STYLES (uses custom properties)
+   =========================================== */
+.prefect {
+  margin: var(--prefect-margin);
+  padding: var(--prefect-padding-vertical) var(--prefect-padding-horizontal);
+  border-radius: var(--prefect-border-radius);
+  border: var(--prefect-number-border-width) var(--prefect-number-border-style)
+    var(--prefect-border-color);
+  background: var(--prefect-bg);
+  color: var(--prefect-text);
+  overflow: auto;
+
+  font-family: var(--prefect-font-family);
+  font-size: var(--prefect-font-size);
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0;
+}
+
+.prefect .row {
+  display: contents;
+  line-height: var(--prefect-line-height);
+}
+
+.prefect .row:hover .number,
+.prefect .row:hover .content {
+  background: var(--prefect-hover-bg);
+}
+
+.prefect .number {
+  padding-left: var(--prefect-number-padding-left);
+  padding-right: var(--prefect-number-padding-right);
+  min-width: var(--prefect-number-min-width);
+  text-align: var(--prefect-number-text-align);
+  border-right: var(--prefect-number-border-width)
+    var(--prefect-number-border-style) var(--prefect-border-color);
+  color: var(--prefect-number-color);
+  user-select: none;
+}
+
+.prefect .content {
+  padding-left: var(--prefect-content-padding-left);
+  text-align: var(--prefect-content-text-align);
+}
+
+/* ===========================================
+   WRAP VARIANT (allow line wrapping)
+   =========================================== */
+.prefect.wrap .content {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}

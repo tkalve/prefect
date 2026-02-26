@@ -1,0 +1,66 @@
+{
+  "name": "@tkalve/prefect",
+  "description": "A lightweight <pre> replacement with built-in line numbering and other developer-friendly enhancements.",
+  "author": "Thomas Kalve",
+  "license": "MIT",
+  "homepage": "https://github.com/tkalve/prefect#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tkalve/prefect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tkalve/prefect/issues"
+  },
+  "version": "0.5.0",
+  "type": "module",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "pre",
+    "code",
+    "syntax",
+    "line-numbers",
+    "numbering",
+    "developer-tools",
+    "ui",
+    "component-library"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "glob": "^13.0.6",
+    "globals": "^16.5.0",
+    "sass-embedded": "^1.97.3",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.48.0",
+    "vite": "^7.3.1",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-lib-inject-css": "^2.2.2"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ]
+}
