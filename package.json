@@ -60,6 +60,9 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2"
   },
+  "overrides": {
+    "minimatch": "10.2.3"
+  },
   "sideEffects": [
     "**/*.css"
   ]
